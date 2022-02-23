@@ -29,14 +29,14 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top d-flex justify-content-between">
 
     <div>
-        <a class="navbar-brand pretty" href="index.html">GuitarShop</a>
+        <a class="navbar-brand pretty" href="index.php">GuitarShop</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Главная <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.php">Главная <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Гитары</a>
@@ -51,7 +51,7 @@
     <div>
         <form class="form-inline d-f center">
             <input class="form-control mr-sm-2" type="search" placeholder="Введите название" aria-label="Search">
-            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Поиск</button>
+            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Поиск</button>
         </form>
     </div>
 
@@ -75,21 +75,29 @@
                 <?php foreach ($products as $product):?>
                     <div class="product-card">
                         <div class="offer">
-                            <div class="offer-hit">Hit</div>
+                            <?php if($product['hit']):?>
+                                <div class="offer-hit">Hit</div>
+                            <?php endif;?>
+                            <?php if($product['sale']):?>
+                                <div class="offer-sale">Sale</div>
+                            <?php endif;?>
                         </div>
                         <div class="card-thumb">
-                            <a href="product.html"><img src="img/<?=$product['img'];?>" alt=""></a>
+                            <a href="#"><img src="img/<?=$product['img'];?>" alt="<?php $product['title'];?>"></a>
                         </div>
                         <div class="card-caption">
                             <div class="card-title">
-                                <a href="product.html"><?=$product['title'];?></a>
+                                <a href="#"><?=$product['title'];?></a>
                             </div>
                             <div class="card-price text-center">
+                                <?php if ($product['old_price']): ?>
+                                    <del><?=$product['old_price'];?> руб. </del>
+                                <?php endif;?>
                                 <?=$product['price'];?> руб.
                             </div>
-                            <button type="button" class="btn btn-danger btn-block card-addtocart">
+                            <a href="?cart=add&id=<?=$product['id'];?>" class="btn btn-danger btn-block add-to-cart" data-id="<?=$product['id'];?>">
                                 <i class="fas fa-cart-arrow-down"></i> Купить
-                            </button>
+                            </a>
                             <div class="item-status">
                                 <i class="far fa-pause-circle text-danger"></i> Ожидается
                             </div>
