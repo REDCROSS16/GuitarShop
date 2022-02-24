@@ -1,4 +1,15 @@
 $(function() {
+
+    function showCart(cart) {
+        console.log(cart)
+        $('#cart-modal .modal-cart-content').html(cart);
+        $('#cart-modal').modal();
+
+
+        let cartQty = $('#modal-cart-qty').text() ? $('#modal-cart-qty').text() : 0;
+        $('.mini-cart-qty').text(cartQty);
+    }
+
     $('.add-to-cart').click( function (e) {
         e.preventDefault();
         let id = $(this).data('id');
@@ -13,9 +24,9 @@ $(function() {
             dataType: 'json',
             success: function (res) {
                 if (res.code == 'ok') {
-                    alert('ok');
+                    showCart(res.response);
                 } else {
-                    alert(res.answer);
+                    alert('error');
                 }
             },
             error: function () {
@@ -23,4 +34,6 @@ $(function() {
             }
         })
     });
+
+
 });

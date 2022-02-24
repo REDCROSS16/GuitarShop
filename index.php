@@ -57,10 +57,10 @@
     </div>
 
     <div>
-        <button type="button" class="btn btn-dark shopping-cart" data-toggle="modal" data-target="#cart-modal">
+        <button id="get-cart" type="button" class="btn btn-dark shopping-cart" data-toggle="modal" data-target="#cart-modal">
             <svg enable-background="new 0 0 128 128" id="Layer_1" version="1.1" viewBox="0 0 128 128" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><circle cx="89" cy="101" fill="none" r="8" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/><circle cx="49" cy="101" fill="none" r="8" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/><path d="  M29,33h83.0800705c2.8071136,0,4.7410736,2.8159065,3.7333832,5.4359169L99.8765564,79.8718338  C98.6882782,82.9613724,95.7199707,85,92.4097977,85H45.6081238c-3.8357391,0-7.1316795-2.722496-7.8560524-6.4892197L29,33z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/><path d="  M28.9455147,33.0107765l-1.5162468-7.5799599C26.6812878,21.6915436,23.3980236,19,19.5846729,19h-7.2409086" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4"/><line fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4" x1="89.9039841" x2="92.9041901" y1="45" y2="45"/><line fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="4" x1="32" x2="80.9041901" y1="45" y2="45"/>
             </svg>
-            Корзина <span class="badge badge-light">3</span>
+            Корзина <span class="badge badge-light mini-cart-qty"><?=$_SESSION['cart.qty'] ?? 0;?></span>
         </button>
     </div>
 
@@ -135,38 +135,8 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col">Image</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Qty</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td><a href="product.html"><img src="img/1.jpg" alt="CORT AD810M Акустическая гитара"></a></td>
-                        <td><a href="product.html">CORT AD810M Акустическая гитара</a></td>
-                        <td>2 799</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td><a href="product.html"><img src="img/2.jpg" alt="Crafter D6/N Акустическая гитара"></a></td>
-                        <td><a href="product.html">Crafter D6/N Акустическая гитара</a></td>
-                        <td>12 626</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td colspan="4" align="right">Товаров: 3 <br> Сумма: 28 051 грн.</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Оформить заказ</button>
+            <div class="modal-cart-content">
+
             </div>
         </div>
     </div>

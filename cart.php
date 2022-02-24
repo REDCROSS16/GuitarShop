@@ -16,7 +16,11 @@ if (isset($_GET['cart'])) {
                 echo json_encode(['code'=> 'error', 'response' =>  'Error product']);
             } else {
                 $products->addToCart($product);
-                echo json_encode(['code'=> 'ok', 'response' =>  $product]);
+                ob_start();
+                require 'cart-modal.php';
+                $cart = ob_get_clean();
+
+                echo json_encode(['code'=> 'ok', 'response' =>  $cart]);
             }
 
             break;
