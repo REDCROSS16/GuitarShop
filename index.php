@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once 'db/db.php';
     require_once 'classes/Helper.php';
     require_once 'classes/Products.php';
