@@ -43,11 +43,26 @@ $(function() {
             url: 'cart.php',
             type: 'GET',
             data: { cart: 'show', },
-            dataType: 'json',
             success: function (res) {
-                showCart(res.response);
+                showCart(res);
             },
-            error: function () {
+            error: function (res) {
+                alert('Error');
+            }
+        })
+    });
+
+    // очистка корзины
+    $('#cart-modal .modal-cart-content').on('click', '#clear-cart', function (e) {
+
+        $.ajax({
+            url: 'cart.php',
+            type: 'GET',
+            data: { cart: 'clear', },
+            success: function (res) {
+                showCart(res);
+            },
+            error: function (res) {
                 alert('Error');
             }
         })

@@ -19,7 +19,7 @@
         </tr>
         <?php endforeach;?>
         <tr>
-            <td colspan="4" align="right">Товаров: <span id="modal-cart-qty"> <?= $_SESSION['cart.qty']; ?></span> <br> <?= $_SESSION['cart.sum'];?> грн.</td>
+            <td colspan="4" align="right">Товаров: <span id="modal-cart-qty"> <?= $_SESSION['cart.qty']; ?></span> <br> <?= $_SESSION['cart.sum'];?> руб.</td>
         </tr>
         </tbody>
     </table>
@@ -28,7 +28,7 @@
     <?php endif;?>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-warning" data-dismiss="modal">Закрыть</button>
     <?php if (!empty($_SESSION['cart'])) :?>
         <button type="button" class="btn btn-warning">Оформить заказ</button>
         <button type="button" class="btn btn-warning" id="clear-cart">Очистить корзину</button>
