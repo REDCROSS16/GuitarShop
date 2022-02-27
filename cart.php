@@ -22,7 +22,9 @@ if (isset($_GET['cart'])) {
 
                 echo json_encode(['code'=> 'ok', 'response' =>  $cart]);
             }
-
+            break;
+        case 'show':
+            require 'cart-modal.php';
             break;
     }
 }
